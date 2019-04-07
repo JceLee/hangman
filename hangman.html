@@ -30,7 +30,11 @@
         <h2 id="lives"></h2>
     </div>
 
-    <div id="container3">
+    <div id ="container3">
+        <h2 id="score"></h2>
+    </div>
+
+    <div id="container4">
         <h2 id="answer"></h2>
     </div>
 
@@ -54,10 +58,12 @@
         //    });
         let answer_letters = "IRISBABO";        
         let blanks = "";
-        let live = 7;      
+        let live = 7;  
+        let score = 0;    
 
-        let lives = document.getElementById('lives')
-        let answer = document.getElementById('answer')
+        let lives = document.getElementById('lives');
+        let answer = document.getElementById('answer');
+        let scores = document.getElementById('score');
 
         String.prototype.replaceAt=function(index, replacement) {
             return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
@@ -92,6 +98,7 @@
             makeUnderScore();
             makeButtons();
             lives.innerHTML = "Lives: " + live;
+            scores.innerHTML = "Score: " + score;
             answer.innerHTML = showLetters(makeUnderScore); 
         }
         initiateGame();
@@ -111,7 +118,9 @@
             
             for (let letter = 0; letter < answer_letters.length; letter++){   
                 if (clicked_letter == answer_letters[letter]) {  
-                    blanks = blanks.replaceAt(letter, clicked_letter);       // Replace '_' to the correct letter                    
+                    blanks = blanks.replaceAt(letter, clicked_letter);       // Replace '_' to the correct letter    
+                    score += 1;
+                    scores.innerHTML = "Score: " + score;                
                 } 
             }
             document.getElementById('answer').innerHTML = showLetters(blanks);
@@ -120,7 +129,9 @@
         function wrongLetter(clicked_letter){
             document.getElementById(clicked_letter).disabled = true;
             live -= 1;
-            document.getElementById('lives').innerHTML = "Lives: " + live;            
+            score -= 1;
+            document.getElementById('lives').innerHTML = "Lives: " + live;  
+            scores.innerHTML = "Score: " + score;          
             if (live == 0) {
                 document.write("Done"); //
             }
