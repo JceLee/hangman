@@ -53,9 +53,7 @@
             </center>
         </div>
     </div>
-    <div id="container5">
-        <button id="resetButton" type="button" onclick="reset()">RESTART</button>
-    </div>
+    
     <script>
         let answer_letters = "IRISBABO";        
         let blanks = "";
@@ -82,7 +80,6 @@
                 btn.innerHTML = String.fromCharCode(i);
                 btn.id = String.fromCharCode(i);
                 btn.addEventListener("click", function () {
-                    // console.log("Button " + String.fromCharCode(i) + " was clicked.")
                     let clicked_letter = String.fromCharCode(i);
                     if (isCorrectLetter(clicked_letter) == true){
                         correctLetter(clicked_letter);
@@ -148,5 +145,8 @@
         }
 
     </script>
+    <div id="container5">
+        <button id="resetButton" type="button" onclick="reset()">RESTART</button>
+    </div>
 </body>
 </html>
