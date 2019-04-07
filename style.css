@@ -2,15 +2,21 @@ body {
     background-color: pink;
 }
 
-#container1,
-#container2,
-#container3,
-#container4,
-#container5 {
+#div_title,
+#div_lives,
+#div_score{
+    text-align: center;
+}
+#div_hearts{
+    text-align: center;
+}
+#div_answer {
     text-align: center;
     font-family: Roboto, sans-serif;
 }
-
+#div_restart {
+    text-align: center;
+}
 .heart {
     width: 5%;
     margin-left: 1%;

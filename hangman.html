@@ -10,19 +10,19 @@
     <script src="firebase.js"></script>
 </head>
 <body>
-    <div id="container1">
+    <div id="div_title">
         <h1 id="title">Hangman</h1>
     </div>
 
-    <div id="container2">
+    <div id="div_lives">
         <h2 id="lives"></h2>
     </div>
 
-    <div id="container7">
+    <div id="div_score">
         <h2 id="score"></h2>
     </div>
 
-    <div id="container3">
+    <div id="div_hearts">
         <img class="heart" src="images/heart.png">
         <img class="heart" src="images/heart.png">
         <img class="heart" src="images/heart.png">
@@ -32,10 +32,9 @@
         <img class="heart" src="images/heart.png">
     </div>
 
-    <div id="container4">
+    <div id="div_answer">
         <h2 id="answer"></h2>
     </div>
-
 
     <a id="gameover" href="#popup_gameover"></a>
     <div id="popup_gameover" class="overlay">
@@ -90,7 +89,6 @@
                     if (isCorrectLetter(clicked_letter) == true){
                         correctLetter(clicked_letter);
                         if (blanks.indexOf('_') == -1 && live > 0) {
-                            // console.log("hi");
                             document.getElementById('win').click();
                         }
                     } else {
@@ -99,6 +97,8 @@
                 })
             }
         }
+
+
 
         function initiateGame(){
             makeUnderScore();
@@ -156,7 +156,7 @@
         }
 
     </script>
-    <div id="container5">
+    <div id="div_restart">
         <button id="resetButton" type="button" onclick="reset()">RESTART</button>
     </div>
 </body>
