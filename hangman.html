@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>HANGMAN</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script>
          // Initialize Firebase
@@ -20,8 +22,18 @@
     </script>
 </head>
 <body>
-    <h1 id="lives"></h1>
-    <h1 id="answer"></h1>    
+    <div id="container1">
+        <h1 id="title">Hangman</h1>
+    </div>
+
+    <div id="container2">
+        <h2 id="lives"></h2>
+    </div>
+
+    <div id="container3">
+        <h2 id="answer"></h2>
+    </div>
+
     <script>
         // 화면 만들기
 
