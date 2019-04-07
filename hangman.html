@@ -23,13 +23,13 @@
     </div>
 
     <div id="div_hearts">
-        <img class="heart" src="images/heart.png">
-        <img class="heart" src="images/heart.png">
-        <img class="heart" src="images/heart.png">
-        <img class="heart" src="images/heart.png">
-        <img class="heart" src="images/heart.png">
-        <img class="heart" src="images/heart.png">
-        <img class="heart" src="images/heart.png">
+        <img id="0" class="heart" src="images/heart.png">
+        <img id="1" class="heart" src="images/heart.png">
+        <img id="2" class="heart" src="images/heart.png">
+        <img id="3" class="heart" src="images/heart.png">
+        <img id="4" class="heart" src="images/heart.png">
+        <img id="5" class="heart" src="images/heart.png">
+        <img id="6" class="heart" src="images/heart.png">
     </div>
 
     <div id="div_answer">
@@ -98,6 +98,9 @@
             }
         }
 
+        function destroyHeart(){
+            document.getElementById(live).src = "images/blackheart.png"
+        }
 
 
         function initiateGame(){
@@ -135,8 +138,9 @@
         function wrongLetter(clicked_letter){
             document.getElementById(clicked_letter).disabled = true;
             live -= 1;
+            destroyHeart();
             document.getElementById('lives').innerHTML = "Lives: " + live;  
-            score -= 1;
+            score -= -1;
             scores.innerHTML = "Score: " + score;          
             if (live == 0) {
                 document.getElementById('gameover').click();
