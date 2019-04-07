@@ -6,20 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HANGMAN</title>
     <link href="style.css" type="text/css" rel="stylesheet">
-
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
-    <script>
-         // Initialize Firebase
-       var config = {
-           apiKey: "AIzaSyDoqX5nISjFClEbm0N9HgnWoYEcMOyOq3Q",
-           authDomain: "hangman-9d257.firebaseapp.com",
-           databaseURL: "https://hangman-9d257.firebaseio.com",
-           projectId: "hangman-9d257",
-           storageBucket: "hangman-9d257.appspot.com",
-           messagingSenderId: "308095838999"
-       };
-       firebase.initializeApp(config);
-    </script>
+    <script src="firebase.js"></script>
 </head>
 <body>
     <div id="container1">
@@ -44,24 +32,31 @@
         <h2 id="answer"></h2>
     </div>
 
+
+    <a id="gameover" href="#popup_gameover"></a>
+    <div id="popup_gameover" class="overlay">
+        <div class="popup">
+            <h2>GAME OVER</h2>
+            <a class="close" href="#">&times;</a>
+            <center>
+                <a href="#" class="play_btn">PLAY AGAIN</a>
+            </center>
+        </div>
+    </div>
+    <a id="win" href="#popup_win"></a>
+    <div id="popup_win" class="overlay">
+        <div class="popup">
+            <h2>YOU GOT IT !</h2>
+            <a class="close" href="#">&times;</a>
+            <center>
+                <a href="#" class="play_btn" >PLAY AGAIN</a>
+            </center>
+        </div>
+    </div>
+    <div id="container5">
+        <button id="resetButton" type="button" onclick="reset()">RESTART</button>
+    </div>
     <script>
-        // 화면 만들기
-
-
-        // let dbref = firebase.database().ref().child("Answers");
-        // let randomNumber = Math.floor(Math.random() * 3)+1;
-
-        // dbref.on(
-        //    "value",
-        //    function(snap) {
-        //        answerDatabase = snap.val();
-        //        let number = randomNumber;
-        //        console.log(number);
-        //        var answer_letters = answerDatabase[number]["Answer"]
-        //        document.getElementById("answer").innerHTML =  answer_letters
-        //        let answer = answerDatabase[number]["Question"]
-        //        let my_list = [answer, question]
-        //    });
         let answer_letters = "IRISBABO";        
         let blanks = "";
         let live = 7;      
@@ -91,6 +86,10 @@
                     let clicked_letter = String.fromCharCode(i);
                     if (isCorrectLetter(clicked_letter) == true){
                         correctLetter(clicked_letter);
+                        if (blanks.indexOf('_') == -1 && live > 0) {
+                            // console.log("hi");
+                            document.getElementById('win').click();
+                        }
                     } else {
                         wrongLetter(clicked_letter)
                     }                    
@@ -132,15 +131,7 @@
             live -= 1;
             document.getElementById('lives').innerHTML = "Lives: " + live;            
             if (live == 0) {
-                document.write("Done"); //
-            }
-        }
-
-        function didUserGetAnswer(){
-            if (!blanks.include('_')){
-                return true
-            } else {
-                return false
+                document.getElementById('gameover').click();
             }
         }
 
@@ -151,29 +142,11 @@
             }
             return clean
         }
-        
-        // function reset(){
-        //     live = 7;      
-        //     blanks = "";
-        //     answer_letters = "IRISBABO"; 
-        //     for (let i = 65; i < 90; i++){
-        //         let btn = document.getElementById(String.fromCharCode(i));
-        //         btn.remove();
-        //     }
-        //     makeUnderScore();
-        //     makeButtons();
-        //     lives.innerHTML = "Lives: " + live;
-        //     answer.innerHTML = showLetters(makeUnderScore);
-        // }
 
-        function jasonBabo(){
+        function reset(){
             location.reload();
         }
+
     </script>
 </body>
-<br>
-<br>
-<div id="container5">
-<button id="resetButton" type="button" onclick="jasonBabo()">Reset</button>
-</div>
 </html>
