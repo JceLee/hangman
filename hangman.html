@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+         // Initialize Firebase
+       var config = {
+           apiKey: "AIzaSyDoqX5nISjFClEbm0N9HgnWoYEcMOyOq3Q",
+           authDomain: "hangman-9d257.firebaseapp.com",
+           databaseURL: "https://hangman-9d257.firebaseio.com",
+           projectId: "hangman-9d257",
+           storageBucket: "hangman-9d257.appspot.com",
+           messagingSenderId: "308095838999"
+       };
+       firebase.initializeApp(config);
+    </script>
+</head>
+<body>
+    <h1 id="lives"></h1>
+    <h1 id="answer"></h1>    
+    <script>
+        // 화면 만들기
+
+
+        // let dbref = firebase.database().ref().child("Answers");
+        // let randomNumber = Math.floor(Math.random() * 3)+1;
+
+        // dbref.on(
+        //    "value",
+        //    function(snap) {
+        //        answerDatabase = snap.val();
+        //        let number = randomNumber;
+        //        console.log(number);
+        //        var answer_letters = answerDatabase[number]["Answer"]
+        //        document.getElementById("answer").innerHTML =  answer_letters
+        //        let answer = answerDatabase[number]["Question"]
+        //        let my_list = [answer, question]
+        //    });
+        let answer_letters = "IRISBABO";        
+        let blanks = "";
+        let live = 7;      
+
+        let lives = document.getElementById('lives')
+        let answer = document.getElementById('answer')
+
+        String.prototype.replaceAt=function(index, replacement) {
+            return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+        }
+
+        function makeUnderScore(){
+            for (let blank = 0; blank < answer_letters.length; blank++) {
+                blanks += '_';
+            }
+            return blanks
+        }        
+
+        function makeButtons() {
+            for (let i = 65; i < 90; i++) {
+                let btn = document.createElement("button");
+                document.body.appendChild(btn);
+                btn.innerHTML = String.fromCharCode(i);
+                btn.id = String.fromCharCode(i);
+                btn.addEventListener("click", function () {
+                    // console.log("Button " + String.fromCharCode(i) + " was clicked.")
+                    let clicked_letter = String.fromCharCode(i);
+                    if (isCorrectLetter(clicked_letter) == true){
+                        correctLetter(clicked_letter);
+                    } else {
+                        wrongLetter(clicked_letter)
+                    }                    
+                })
+            }
+        }
+
+        function initiateGame(){
+            makeUnderScore();
+            makeButtons();
+            lives.innerHTML = "Lives: " + live;
+            answer.innerHTML = showLetters(makeUnderScore); 
+        }
+        initiateGame();
+
+        function isCorrectLetter(clicked_letter){
+            for (let letter = 0; letter < answer_letters.length; letter++){
+                if (answer_letters.includes(clicked_letter)) {
+                    return true
+                } else {
+                    return false
+                }
+            }
+        }
+
+        function correctLetter(clicked_letter){
+            document.getElementById(clicked_letter).disabled = true;         // disabled the button clicked
+            
+            for (let letter = 0; letter < answer_letters.length; letter++){   
+                if (clicked_letter == answer_letters[letter]) {  
+                    blanks = blanks.replaceAt(letter, clicked_letter);       // Replace '_' to the correct letter                    
+                } 
+            }
+            document.getElementById('answer').innerHTML = showLetters(blanks);
+        }
+
+        function wrongLetter(clicked_letter){
+            document.getElementById(clicked_letter).disabled = true;
+            live -= 1;
+            document.getElementById('lives').innerHTML = "Lives: " + live;            
+            if (live == 0) {
+                document.write("Done"); //
+            }
+        }
+
+        function didUserGetAnswer(){
+            if (!blanks.include('_')){
+                return true
+            } else {
+                return false
+            }
+        }
+
+        function showLetters(letters){
+            clean = ''
+            for (let i = 0; i < blanks.length; i++) {
+                clean += blanks[i] + ' ';
+            }
+            return clean
+        }
+    </script>
+</body>
+
+</html>
