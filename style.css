@@ -44,8 +44,9 @@ body {
 .popup h2 {
     margin-top: 0;
     color: #333;
-    font-family: Tahoma, Arial, sans-serif;
+    font-family: Roboto, sans-serif;
     text-align: center;
+    font-weight: bold;
 }
 .popup .close {
     position: absolute;
@@ -69,4 +70,6 @@ body {
     cursor: pointer;
     display: inline-block;
     padding: 15px 20px;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
 }
