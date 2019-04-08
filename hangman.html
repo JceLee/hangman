@@ -44,7 +44,7 @@
             <h2>GAME OVER</h2>
             <a class="close" href="#">&times;</a>
             <center>
-                <a href="#" class="play_btn">PLAY AGAIN</a>
+                <a href="#" onclick="softReset()" class="play_btn">PLAY AGAIN</a>
             </center>
         </div>
     </div>
@@ -54,7 +54,7 @@
             <h2>YOU GOT IT !</h2>
             <a class="close" href="#">&times;</a>
             <center>
-                <a href="#" onclick="resetclass="play_btn" >PLAY AGAIN</a>
+                <a href="#" onclick="softReset()" class="play_btn">PLAY AGAIN</a>
             </center>
         </div>
     </div>
@@ -169,6 +169,17 @@
                 clean += blanks[i] + ' ';
             }
             return clean
+        }
+
+        function softReset(){
+        live = 7;
+        blanks = "";
+        answer_letters = "IRISCHOW";
+        for (let i = 65; i < 90; i++){
+            let btn = document.getElementById(String.fromCharCode(i));
+            btn.disabled = false;
+        }
+        answer.innerHTML = showLetters(makeUnderScore())
         }
 
         function reset(){

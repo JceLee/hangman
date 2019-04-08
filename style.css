@@ -24,6 +24,10 @@ body {
     margin-left: 1%;
 }
 
+#resetButton {
+
+}
+
 /* POPUP CSS */
 .overlay {
     position: fixed;
