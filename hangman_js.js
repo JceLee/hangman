@@ -53,6 +53,17 @@
         }
     }
 
+    function makeHeart(){
+        for (let i = 0; i < 7; i++){
+            let heart_img = document.createElement("img");
+            document.getElementById("li_hearts").appendChild(heart_img);
+            heart_img.src = "images/heart.png";
+            heart_img.id = i;
+            heart_img.className = "heartImage";
+        }
+    }
+
+
     function destroyHeart(){
         document.getElementById(live).src = "images/blackheart.png"
     }
@@ -60,6 +71,7 @@
 
     function initiateGame(){
         makeUnderScore();
+        makeHeart();
         makeButtons();
         scores.innerHTML = "Score: " + score;
         answer.innerHTML = showLetters(makeUnderScore);
@@ -78,7 +90,6 @@
 
     function correctLetter(clicked_letter){
         document.getElementById(clicked_letter).disabled = true;         // disabled the button clicked
-
         for (let letter = 0; letter < answer_letters.length; letter++){
             if (clicked_letter == answer_letters[letter]) {
                 blanks = blanks.replaceAt(letter, clicked_letter);       // Replace '_' to the correct letter
@@ -111,29 +122,27 @@
     function softReset(){
     dbref = firebase.database().ref().child("Answers");
     randomNumber = Math.floor(Math.random() * 3)+1;
-    dbref.on("value", function(data) {
-         let answerDatabase = data.val();
-         let number = randomNumber;
-         let fbanswer = answerDatabase[number]["Answer"]
-         let fbquestion = answerDatabase[number]["Question"]
-         dbanswer = fbanswer
-         dbquestion = fbquestion
+        dbref.on("value", function(data) {
+             let answerDatabase = data.val();
+             let number = randomNumber;
+             let fbanswer = answerDatabase[number]["Answer"]
+             let fbquestion = answerDatabase[number]["Question"]
+             dbanswer = fbanswer
+             dbquestion = fbquestion
+        });
+            setTimeout(function(){ answer_letters = dbanswer; }, 500);
+            live = 7;
+            blanks = "";
+            for (let i = 65; i < 90; i++){
+                let btn = document.getElementById(String.fromCharCode(i));
+                btn.disabled = false;
+            }
+            for (let i = 0; i < 7; i++){
+                document.getElementById(i).src = "images/heart.png";
+            }
+            setTimeout(function(){ answer.innerHTML = showLetters(makeUnderScore()) }, 500);
+            }
 
-    });
-
-    setTimeout(function(){ answer_letters = dbanswer; }, 500);
-    live = 7;
-    blanks = "";
-    for (let i = 65; i < 90; i++){
-        let btn = document.getElementById(String.fromCharCode(i));
-        btn.disabled = false;
-    }
-    for (let i = 0; i < 7; i++){
-        document.getElementById(i).src = "images/heart.png";
-    }
-    setTimeout(function(){ answer.innerHTML = showLetters(makeUnderScore()) }, 500);
-    }
-
-    function reset(){
-        location.reload();
+            function reset(){
+                location.reload();
     }

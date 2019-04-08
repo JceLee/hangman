@@ -1,14 +1,40 @@
 body {
+    font-family: 'Exo 2', sans-serif;
     background-color: pink;
 }
+ul {
+
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    list-style: none;
+    float: left;
+    width: 33.3%;
+    text-align: center;
+}
+
+#li_hearts {
+    float: right;
+}
+
 #buttonSpace{
     text-align: center;
 }
 #div_title,
 #div_lives,
-#div_score{
-    text-align: center;
+#div_score {
+    margin-top: 2%;
+    width: 100%;
+    padding: 0;
 }
+
+#score {
+    font-size: 2em;
+}
+
 #div_hearts{
     text-align: center;
 }
@@ -19,9 +45,8 @@ body {
 #div_restart {
     text-align: center;
 }
-.heart {
+.heartImage {
     width: 5%;
-    margin-left: 1%;
 }
 
 #resetButton {
