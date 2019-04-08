@@ -99,8 +99,9 @@
             for (let i = 65; i < 91; i++) {
                 let btn = document.createElement("button");
                 document.getElementById("buttonSpace").appendChild(btn);
-                btn.innerHTML = String.fromCharCode(i);
+                btn.innerHTML = `<span>` + String.fromCharCode(i) + `</span>`;
                 btn.id = String.fromCharCode(i);
+                btn.className = "pinkbutton"
                 btn.addEventListener("click", function () {
                     let clicked_letter = String.fromCharCode(i);
                     if (isCorrectLetter(clicked_letter) == true){
