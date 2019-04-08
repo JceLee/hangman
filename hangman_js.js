@@ -1,18 +1,21 @@
     let dbref = firebase.database().ref().child("Answers");
     let randomNumber = Math.floor(Math.random() * 3)+1;
     let dbanswer = "";
-    let dbquestion = "";
+    let dbclue = "";
     dbref.on("value", function(data) {
          let answerDatabase = data.val();
          let number = randomNumber;
          let fbanswer = answerDatabase[number]["Answer"]
-         let fbquestion = answerDatabase[number]["Question"]
+         let fbclue = answerDatabase[number]["Clue"]
          dbanswer = fbanswer
-         dbquestion = fbquestion
+         dbclue = fbclue
     });
 
     let answer_letters
+    let display_clue
     setTimeout(function(){ answer_letters = dbanswer; }, 500);
+    setTimeout(function(){ display_clue = dbclue; }, 500);
+    setTimeout(function(){ document.getElementById("clues").innerHTML = "clue : " + dbclue;}, 500);
     let blanks = "";
     let live = 7;
     let score = 0;
@@ -63,6 +66,7 @@
         makeButtons();
         scores.innerHTML = "Score: " + score;
         answer.innerHTML = showLetters(makeUnderScore);
+        
     }
     setTimeout(function(){ initiateGame(); }, 500);
 
@@ -122,6 +126,7 @@
     });
 
     setTimeout(function(){ answer_letters = dbanswer; }, 500);
+    setTimeout(function(){ display_clue = dbclue; }, 500);
     live = 7;
     blanks = "";
     for (let i = 65; i < 90; i++){
@@ -132,6 +137,7 @@
         document.getElementById(i).src = "images/heart.png";
     }
     setTimeout(function(){ answer.innerHTML = showLetters(makeUnderScore()) }, 500);
+    
     }
 
     function reset(){
