@@ -15,7 +15,9 @@ li {
 #buttonSpace{
     text-align: center;
 }
-#div_title,
+
+div#title,
+#leaderboard,
 #div_lives,
 #div_score{
     text-align: center;
