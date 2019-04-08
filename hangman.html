@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HANGMAN</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2|Montserrat" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script src="firebase.js"></script>
+</head>
+<body>
+    <!-- <div id="div_title">
+        <h1 id="title">Hangman</h1>
+    </div> -->
+    <div id="div_score">
+        <ul>
+            <li id="score"></li>
+            <li id="li_hearts"></li>
+        </ul>
+    </div>
+
+    <div id="div_answer">
+        <h2 id="answer"></h2>
+    </div>
+
+    <div id="buttonSpace"></div>
+
+    <a id="gameover" href="#popup_gameover"></a>
+    <div id="popup_gameover" class="overlay">
+        <div class="popup">
+            <h2>GAME OVER</h2>
+            <a class="close" href="#">&times;</a>
+            <center>
+                <a href="#" onclick="softReset()" class="play_btn">PLAY AGAIN</a>
+            </center>
+        </div>
+    </div>
+    <a id="win" href="#popup_win"></a>
+    <div id="popup_win" class="overlay">
+        <div class="popup">
+            <h2>YOU GOT IT !</h2>
+            <a class="close" href="#">&times;</a>
+            <center>
+                <a href="#" onclick="softReset()" class="play_btn">PLAY AGAIN</a>
+            </center>
+        </div>
+    </div>
+    <br>
+    <div id="div_restart">
+        <button id="resetButton" type="button" onclick="reset()">RESTART</button>
+    </div>
+    <script src="hangman_js.js"></script>
+</body>
+</html>
