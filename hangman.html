@@ -155,16 +155,16 @@
         function wrongLetter(clicked_letter){
             document.getElementById(clicked_letter).disabled = true;
             live -= 1;
+            score -= 1;
+            scores.innerHTML = "Score: " + score;
             destroyHeart();
-            score -= -1;
-            scores.innerHTML = "Score: " + score;          
             if (live == 0) {
                 document.getElementById('gameover').click();
             }
         }
 
         function showLetters(letters){
-            clean = ''
+            clean = '';
             for (let i = 0; i < blanks.length; i++) {
                 clean += blanks[i] + ' ';
             }
