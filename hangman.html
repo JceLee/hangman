@@ -172,9 +172,21 @@
         }
 
         function softReset(){
+        dbref = firebase.database().ref().child("Answers");
+        randomNumber = Math.floor(Math.random() * 3)+1;
+        dbref.on("value", function(data) {
+             let answerDatabase = data.val();
+             let number = randomNumber;
+             let fbanswer = answerDatabase[number]["Answer"]
+             let fbquestion = answerDatabase[number]["Question"]
+             dbanswer = fbanswer
+             dbquestion = fbquestion
+            
+        });
+        
+        setTimeout(function(){ answer_letters = dbanswer; }, 500); 
         live = 7;
         blanks = "";
-        answer_letters = "IRISCHOW";
         for (let i = 65; i < 90; i++){
             let btn = document.getElementById(String.fromCharCode(i));
             btn.disabled = false;
@@ -182,7 +194,7 @@
         for (let i = 0; i < 7; i++){
             document.getElementById(i).src = "images/heart.png";
         }
-        answer.innerHTML = showLetters(makeUnderScore())
+        setTimeout(function(){ answer.innerHTML = showLetters(makeUnderScore()) }, 500);
         }
 
         function reset(){
