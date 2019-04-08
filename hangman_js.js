@@ -149,3 +149,20 @@
                 location.reload();
     }
 
+    function writeleaderboard() {
+        let leaderboardscore = score;
+        let leaderboardsname = prompt("put your name")
+        if (leaderboardscore = 0) {
+            window.alert("YOUR SCORE IS FUCKING LOW!!!!!!");
+        } else {
+            let leaderboardref = firebase.database().ref("LeaderBoard/" + leaderboardsname).set({
+                "name": leaderboardsname,
+                "score": leaderboardscore,
+                "date": new Date(),
+            });
+            leaderboardref.then(function() {
+                window.alert("Saved");
+            });    
+                        
+        }
+    }
