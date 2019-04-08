@@ -1,18 +1,19 @@
     let dbref = firebase.database().ref().child("Answers");
-    let randomNumber = Math.floor(Math.random() * 3)+1;
+    let randomNumber = Math.floor(Math.random() * 15)+1;
     let dbanswer = "";
-    let dbquestion = "";
+    let dbclue = "";
     dbref.on("value", function(data) {
          let answerDatabase = data.val();
          let number = randomNumber;
          let fbanswer = answerDatabase[number]["Answer"]
-         let fbquestion = answerDatabase[number]["Question"]
+         let fbclue = answerDatabase[number]["Clue"]
          dbanswer = fbanswer
-         dbquestion = fbquestion
+         dbclue = fbclue
     });
 
     let answer_letters
     setTimeout(function(){ answer_letters = dbanswer; }, 500);
+    setTimeout(function(){ document.getElementById('clue').innerHTML = dbclue }, 500);
     let blanks = "";
     let live = 7;
     let score = 0;
