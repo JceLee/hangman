@@ -96,7 +96,7 @@
         }        
 
         function makeButtons() {
-            for (let i = 65; i < 90; i++) {
+            for (let i = 65; i < 91; i++) {
                 let btn = document.createElement("button");
                 document.getElementById("buttonSpace").appendChild(btn);
                 btn.innerHTML = String.fromCharCode(i);
@@ -177,6 +177,9 @@
         for (let i = 65; i < 90; i++){
             let btn = document.getElementById(String.fromCharCode(i));
             btn.disabled = false;
+        }
+        for (let i = 0; i < 7; i++){
+            document.getElementById(i).src = "images/heart.png";
         }
         answer.innerHTML = showLetters(makeUnderScore())
         }
