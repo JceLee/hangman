@@ -60,7 +60,22 @@
     </div>
     
     <script>
-        let answer_letters = "IRISBABO";        
+        let dbref = firebase.database().ref().child("Answers");
+        let randomNumber = Math.floor(Math.random() * 3)+1;
+        let dbanswer = ""; 
+        let dbquestion = "";
+        dbref.on("value", function(data) {
+             let answerDatabase = data.val();
+             let number = randomNumber;
+             let fbanswer = answerDatabase[number]["Answer"]
+             let fbquestion = answerDatabase[number]["Question"]
+             dbanswer = fbanswer
+             dbquestion = fbquestion
+            
+        });
+        
+        let answer_letters
+        setTimeout(function(){ answer_letters = dbanswer; }, 500);      
         let blanks = "";
         let live = 7;    
         let score = 0;  
@@ -111,7 +126,7 @@
             scores.innerHTML = "Score: " + score;
             answer.innerHTML = showLetters(makeUnderScore); 
         }
-        initiateGame();
+        setTimeout(function(){ initiateGame(); }, 500);
 
         function isCorrectLetter(clicked_letter){
             for (let letter = 0; letter < answer_letters.length; letter++){
