@@ -1,23 +1,10 @@
 body {
-    font-family: 'Exo 2', sans-serif;
     background-color: pink;
+    font-family: 'Exo 2', sans-serif;
 }
-ul {
-
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
 li {
     list-style: none;
-    float: left;
-    width: 33.3%;
-    text-align: center;
-}
-
-#li_hearts {
-    float: right;
+    margin-top: 2%;
 }
 
 #buttonSpace{
@@ -25,28 +12,25 @@ li {
 }
 #div_title,
 #div_lives,
-#div_score {
-    margin-top: 2%;
-    width: 100%;
-    padding: 0;
+#div_score{
+    text-align: center;
 }
 
 #score {
     font-size: 2em;
 }
-
 #div_hearts{
     text-align: center;
 }
 #div_answer {
     text-align: center;
-    font-family: Roboto, sans-serif;
 }
 #div_restart {
     text-align: center;
 }
 .heartImage {
     width: 5%;
+    margin-left: 1%;
 }
 
 #resetButton {
@@ -54,7 +38,7 @@ li {
     border-radius: 50%;
     border: 2px solid black;
     background-color: white;
-    font-family: Roboto, sans-serif;
+    font-family: 'Exo 2', sans-serif;
     font-weight: bold;
     color: hotpink;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -64,7 +48,7 @@ li {
 #resetButton:hover {
     background-color: hotpink;
     color: white;
-    cursor: pointer;
+
 }
 
 /* POPUP CSS */
@@ -95,7 +79,7 @@ li {
 .popup h2 {
     margin-top: 0;
     color: #333;
-    font-family: Roboto, sans-serif;
+    font-family: 'Exo 2', sans-serif;
     text-align: center;
     font-weight: bold;
 }
@@ -114,6 +98,7 @@ li {
 }
 
 .popup .play_btn {
+    font-family: 'Exo 2', sans-serif;
     background-color: pink;
     border-radius: 5px;
     color: white;
@@ -121,50 +106,74 @@ li {
     cursor: pointer;
     display: inline-block;
     padding: 15px 20px;
-    font-family: Roboto, sans-serif;
     font-weight: bold;
 }
-
 .myButton {
-	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
-	background:-moz-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-	background:-webkit-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-	background:-o-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-	background:-ms-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-	background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9',GradientType=0);
-	background-color:#f9f9f9;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	border-radius:5px;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	cursor:pointer;
-	color:#666666;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:10px 15px;
-	text-decoration:none;
-}
-.myButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9));
-	background:-moz-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
-	background:-webkit-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
-	background:-o-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
-	background:-ms-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
-	background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9',GradientType=0);
-	background-color:#e9e9e9;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
+    display: inline-block;
+    margin: 7px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow:    0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35);
+    -moz-box-shadow: 0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35);
+    box-shadow: 0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35);
+    -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+    -moz-transition: -moz-box-shadow .1s ease-in-out;
+    -o-transition: -o-box-shadow .1s ease-in-out;
+    transition: box-shadow .1s ease-in-out;
+    font-size: 30px;
+    color: #fff;
 }
 
-.myButton.disabled {
-    background-color: black;
+.myButton span {
+    display: inline-block;
+    padding: 10px 10px;
+    background-color: #ec528d;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(hsla(338, 90%, 80%, .8)), to(hsla(338, 90%, 70%, .2)));
+    background-image: -webkit-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+    background-image: -moz-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+    background-image: -o-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+    -webkit-border-radius: 8px;
+    font-family: 'Exo 2', sans-serif;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+    -moz-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+    line-height: 1;
+    text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+    -webkit-transition: background-color .2s ease-in-out, -webkit-transform .1s ease-in-out;
+    -moz-transition: background-color .2s ease-in-out, -moz-transform .1s ease-in-out;
+    -o-transition: background-color .2s ease-in-out, -o-transform .1s ease-in-out;
+    transition: background-color .2s ease-in-out, transform .1s ease-in-out;
 }
+
+.myButton:hover span {
+    background-color: #ec6a9c;
+    text-shadow: 0 -1px 1px rgba(175, 49, 95, .9), 0 0 5px rgba(255, 255, 255, .8);
+}
+
+.myButton:active, .button:focus {
+    -webkit-box-shadow:    0 8px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 8px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+    box-shadow:    0 8px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+}
+
+.myButton:active span {
+    -webkit-transform: translate(0, 4px);
+    -moz-transform: translate(0, 4px);
+    -o-transform: translate(0, 4px);
+    transform: translate(0, 4px);
+}
+Collapse
+
+
+
+
+Message Input
+
+
+Message Iris
+
+Thread
+general
