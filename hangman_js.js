@@ -122,16 +122,17 @@
 
     function softReset(){
     dbref = firebase.database().ref().child("Answers");
-    randomNumber = Math.floor(Math.random() * 3)+1;
+    randomNumber = Math.floor(Math.random() * 15)+1;
         dbref.on("value", function(data) {
              let answerDatabase = data.val();
              let number = randomNumber;
              let fbanswer = answerDatabase[number]["Answer"]
-             let fbquestion = answerDatabase[number]["Question"]
+             let fbclue = answerDatabase[number]["Clue"]
              dbanswer = fbanswer
-             dbquestion = fbquestion
+             dbclue = fbclue
         });
             setTimeout(function(){ answer_letters = dbanswer; }, 500);
+            setTimeout(function(){ document.getElementById('clue').innerHTML = dbclue }, 500);
             live = 7;
             blanks = "";
             for (let i = 65; i < 90; i++){
@@ -147,3 +148,4 @@
             function reset(){
                 location.reload();
     }
+
