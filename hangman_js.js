@@ -151,9 +151,9 @@
 
     function writeleaderboard() {
         let leaderboardscore = score;
-        let leaderboardsname = prompt("put your name")
-        if (leaderboardscore = 0) {
-            window.alert("YOUR SCORE IS FUCKING LOW!!!!!!");
+        let leaderboardsname = prompt("What is your name?")
+        if (leaderboardscore < 0) {
+            window.alert("Your score is too low!");
         } else {
             let leaderboardref = firebase.database().ref("LeaderBoard/" + leaderboardsname).set({
                 "name": leaderboardsname,
@@ -161,7 +161,7 @@
                 "date": new Date(),
             });
             leaderboardref.then(function() {
-                window.alert("Saved");
+                window.alert("Your name is saved.");
             });    
                         
         }

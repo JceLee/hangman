@@ -39,7 +39,8 @@ div#title,
     margin-left: 1%;
 }
 
-#resetButton {
+#resetButton,
+#lbButton {
     padding: 16px;
     border-radius: 50%;
     border: 2px solid black;
