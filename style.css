@@ -1,7 +1,9 @@
 body {
     background-color: pink;
 }
-
+#buttonSpace{
+    text-align: center;
+}
 #div_title,
 #div_lives,
 #div_score{

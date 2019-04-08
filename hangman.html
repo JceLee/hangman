@@ -36,6 +36,8 @@
         <h2 id="answer"></h2>
     </div>
 
+    <div id="buttonSpace"></div>
+
     <a id="gameover" href="#popup_gameover"></a>
     <div id="popup_gameover" class="overlay">
         <div class="popup">
@@ -52,7 +54,7 @@
             <h2>YOU GOT IT !</h2>
             <a class="close" href="#">&times;</a>
             <center>
-                <a href="#" class="play_btn" >PLAY AGAIN</a>
+                <a href="#" onclick="resetclass="play_btn" >PLAY AGAIN</a>
             </center>
         </div>
     </div>
@@ -81,7 +83,7 @@
         function makeButtons() {
             for (let i = 65; i < 90; i++) {
                 let btn = document.createElement("button");
-                document.body.appendChild(btn);
+                document.getElementById("buttonSpace").appendChild(btn);
                 btn.innerHTML = String.fromCharCode(i);
                 btn.id = String.fromCharCode(i);
                 btn.addEventListener("click", function () {
@@ -106,7 +108,6 @@
         function initiateGame(){
             makeUnderScore();
             makeButtons();
-            lives.innerHTML = "Lives: " + live;
             scores.innerHTML = "Score: " + score;
             answer.innerHTML = showLetters(makeUnderScore); 
         }
@@ -139,7 +140,6 @@
             document.getElementById(clicked_letter).disabled = true;
             live -= 1;
             destroyHeart();
-            document.getElementById('lives').innerHTML = "Lives: " + live;  
             score -= -1;
             scores.innerHTML = "Score: " + score;          
             if (live == 0) {
@@ -160,6 +160,7 @@
         }
 
     </script>
+    <br>
     <div id="div_restart">
         <button id="resetButton" type="button" onclick="reset()">RESTART</button>
     </div>
