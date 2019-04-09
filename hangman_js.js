@@ -12,8 +12,8 @@
     });
 
     let answer_letters
-    setTimeout(function(){answer_letters = dbanswer;}, 500);
-    setTimeout(function(){document.getElementById('clue').innerHTML = dbclue}, 500);
+    setTimeout(function(){answer_letters = dbanswer;}, 1000);
+    setTimeout(function(){document.getElementById('clue').innerHTML = dbclue}, 1000);
     let blanks = "";
     let live = 7;
     let score = 0;
@@ -76,7 +76,7 @@
         scores.innerHTML = "Score: " + score;
         answer.innerHTML = showLetters(makeUnderScore);
     }
-    setTimeout(function(){ initiateGame(); }, 500);
+    setTimeout(function(){ initiateGame(); }, 1000);
 
     function isCorrectLetter(clicked_letter){
         for (let letter = 0; letter < answer_letters.length; letter++){
@@ -130,8 +130,8 @@
              dbanswer = fbanswer
              dbclue = fbclue
         });
-        setTimeout(function(){ answer_letters = dbanswer; }, 500);
-        setTimeout(function(){ document.getElementById('clue').innerHTML = dbclue }, 500);
+        setTimeout(function(){ answer_letters = dbanswer; }, 1000);
+        setTimeout(function(){ document.getElementById('clue').innerHTML = dbclue }, 1000);
         live = 7;
         blanks = "";
         for (let i = 65; i < 90; i++){
@@ -141,7 +141,7 @@
         for (let i = 0; i < 7; i++){
             document.getElementById(i).src = "images/heart.png";
         }
-        setTimeout(function(){ answer.innerHTML = showLetters(makeUnderScore()) }, 500);
+        setTimeout(function(){ answer.innerHTML = showLetters(makeUnderScore()) }, 1000);
     }
 
     function reset(){
