@@ -186,13 +186,10 @@ function readleaderboard() {
     leaderboardref.on("value", function(data) {
         let leaderboarddata = data.val();
         for(i in leaderboarddata) {
-            console.log("name : " + leaderboarddata[i]["name"])
-            console.log("score : " + leaderboarddata[i]["score"])
             document.getElementById("leaderboard").innerHTML =
             `<div class="leaderboard" "data-score = ` + leaderboarddata[i] + `">
-            <div>` + i + ` score : ` + leaderboarddata[i]["score"] + `</div>
-            </div>`
-            + document.getElementById("leaderboard").innerHTML;
+            <div>Name : ` + leaderboarddata[i]["name"] + `    score : ` + leaderboarddata[i]["score"] + `</div>
+            </div>` + document.getElementById("leaderboard").innerHTML ;
         }
 
     });
