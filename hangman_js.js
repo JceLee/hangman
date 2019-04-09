@@ -12,8 +12,8 @@
     });
 
     let answer_letters
-    setTimeout(function(){ answer_letters = dbanswer; }, 500);
-    setTimeout(function(){ document.getElementById('clue').innerHTML = dbclue }, 500);
+    setTimeout(function(){answer_letters = dbanswer;}, 500);
+    setTimeout(function(){document.getElementById('clue').innerHTML = dbclue}, 500);
     let blanks = "";
     let live = 7;
     let score = 0;
@@ -64,11 +64,9 @@
         }
     }
 
-
     function destroyHeart(){
         document.getElementById(live).src = "images/blackheart.png"
     }
-
 
     function initiateGame(){
         makeUnderScore();
@@ -120,7 +118,7 @@
         return clean
     }
 
-    function softReset(){
+    function keepPlaying(){
     dbref = firebase.database().ref().child("Answers");
     randomNumber = Math.floor(Math.random() * 15)+1;
         dbref.on("value", function(data) {
@@ -131,27 +129,27 @@
              dbanswer = fbanswer
              dbclue = fbclue
         });
-            setTimeout(function(){ answer_letters = dbanswer; }, 500);
-            setTimeout(function(){ document.getElementById('clue').innerHTML = dbclue }, 500);
-            live = 7;
-            blanks = "";
-            for (let i = 65; i < 90; i++){
-                let btn = document.getElementById(String.fromCharCode(i));
-                btn.disabled = false;
-            }
-            for (let i = 0; i < 7; i++){
-                document.getElementById(i).src = "images/heart.png";
-            }
-            setTimeout(function(){ answer.innerHTML = showLetters(makeUnderScore()) }, 500);
-            }
+        setTimeout(function(){ answer_letters = dbanswer; }, 500);
+        setTimeout(function(){ document.getElementById('clue').innerHTML = dbclue }, 500);
+        live = 7;
+        blanks = "";
+        for (let i = 65; i < 90; i++){
+            let btn = document.getElementById(String.fromCharCode(i));
+            btn.disabled = false;
+        }
+        for (let i = 0; i < 7; i++){
+            document.getElementById(i).src = "images/heart.png";
+        }
+        setTimeout(function(){ answer.innerHTML = showLetters(makeUnderScore()) }, 500);
+    }
 
-            function reset(){
-                location.reload();
+    function reset(){
+        location.reload();
     }
 
     function writeleaderboard() {
         let leaderboardscore = score;
-        let leaderboardsname = prompt("What is your name?")
+        let leaderboardsname = prompt("Thanks for playing! What is your name?")
         if (leaderboardscore <= 0) {
             window.alert("Your score is too low!");
         } else {
@@ -162,8 +160,7 @@
             });
             leaderboardref.then(function() {
                 window.alert("Your name is saved.");
-            });    
-                        
+            });
         }
     }
 
@@ -174,23 +171,22 @@
             for(i in leaderboarddata) {
                 console.log("name : " + leaderboarddata[i]["name"])
                 console.log("score : " + leaderboarddata[i]["score"])
-                document.getElementById("leaderboard").innerHTML = 
+                document.getElementById("leaderboard").innerHTML =
                 `<div class="leaderboard" "data-score = ` + leaderboarddata[i] + `">
-                <div>name : ` + i + ` score : ` + leaderboarddata[i]["score"] + `</div>
+                    <div>name : ` + i + ` score : ` + leaderboarddata[i]["score"] + `</div>
                 </div>`
                 + document.getElementById("leaderboard").innerHTML;
             }
-            
         });
     }
-    readleaderboard()
+    readleaderboard();
 
-    // function userscore() {
-    //     $('.leaderboard').sort(function(a, b) {
-    //         if ($(a).data('rating') > $(b).data('rating')) {
-    //             return -1;
-    //         } else {
-    //             return 1;
-    //         }
-    //         }).appendTo('.leaderboardt');
-    // }
+    function userscore() {
+        $('.leaderboard').sort(function(a, b) {
+            if ($(a).data('rating') > $(b).data('rating')) {
+                return -1;
+            } else {
+                return 1;
+            }
+            }).appendTo('.leaderboard');
+    }
