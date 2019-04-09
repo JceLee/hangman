@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CANDY SHOP</title>
     <link href="style.css" type="text/css" rel="stylesheet">
+    <link href="leaderboardCSS.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Exo+2|Montserrat" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script src="firebase.js"></script>
@@ -55,7 +56,18 @@
         <button id="resetButton" type="button" onclick="reset()">RESTART</button>
         <button id="lbButton" type="button" onclick="writeleaderboard()">RANKING</button>
     </div>
-    <div id="leaderboard"></div>
+
+    <div class="leaderboard">
+        <h1>
+            <svg class="ico-cup">
+              <use xlink:href="#cup"></use>
+            </svg>
+            Most active Players
+        </h1>
+        <ol id="lb_list">
+        </ol>
+    </div>
+
     <script src="hangman_js.js"></script>
 </body>
 </html>

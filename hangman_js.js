@@ -186,13 +186,13 @@ function readleaderboard() {
     let leaderboardref = firebase.database().ref().child("LeaderBoard");
     leaderboardref.on("value", function(data) {
         let leaderboarddata = data.val();
-        document.getElementById("leaderboard").innerHTML = "";
+        document.getElementById("lb_list").innerHTML = "";
         for(i in leaderboarddata) {
-            document.getElementById("leaderboard").innerHTML = 
-            `<div class="leaderboard" "data-score = ` + leaderboarddata[i] + `">
-            <div>Name : ` + leaderboarddata[i]["name"] + ` | Score : ` + leaderboarddata[i]["score"] + `</div>
-            </div>` + document.getElementById("leaderboard").innerHTML ;
-        }     
+            document.getElementById("lb_list").innerHTML =
+            `<li>` +
+            `<mark>` + leaderboarddata[i]["name"] + `</mark>`+
+            `<small>` + leaderboarddata[i]["score"] + `</small>` +
+            `</li>` + document.getElementById("lb_list").innerHTML ;
+        }
     });
 }
-
