@@ -152,7 +152,7 @@
     function writeleaderboard() {
         let leaderboardscore = score;
         let leaderboardsname = prompt("What is your name?")
-        if (leaderboardscore < 0) {
+        if (leaderboardscore <= 0) {
             window.alert("Your score is too low!");
         } else {
             let leaderboardref = firebase.database().ref("LeaderBoard/" + leaderboardsname).set({
@@ -166,3 +166,31 @@
                         
         }
     }
+
+    function readleaderboard() {
+        let leaderboardref = firebase.database().ref().child("LeaderBoard");
+        leaderboardref.on("value", function(data) {
+            let leaderboarddata = data.val();
+            for(i in leaderboarddata) {
+                console.log("name : " + leaderboarddata[i]["name"])
+                console.log("score : " + leaderboarddata[i]["score"])
+                document.getElementById("leaderboard").innerHTML = 
+                `<div class="leaderboard" "data-score = ` + leaderboarddata[i] + `">
+                <div>name : ` + i + ` score : ` + leaderboarddata[i]["score"] + `</div>
+                </div>`
+                + document.getElementById("leaderboard").innerHTML;
+            }
+            
+        });
+    }
+    readleaderboard()
+
+    // function userscore() {
+    //     $('.leaderboard').sort(function(a, b) {
+    //         if ($(a).data('rating') > $(b).data('rating')) {
+    //             return -1;
+    //         } else {
+    //             return 1;
+    //         }
+    //         }).appendTo('.leaderboardt');
+    // }
