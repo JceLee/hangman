@@ -174,9 +174,9 @@
             for(i in leaderboarddata) {
                 console.log("name : " + leaderboarddata[i]["name"])
                 console.log("score : " + leaderboarddata[i]["score"])
-                document.getElementById("leaderboard").innerHTML = 
+                document.getElementById("leaderboard").innerHTML += 
                 `<div class="leaderboard" "data-score = ` + leaderboarddata[i] + `">
-                <div>name : ` + i + ` score : ` + leaderboarddata[i]["score"] + `</div>
+                <div>` + i + ` score : ` + leaderboarddata[i]["score"] + `</div>
                 </div>`
                 + document.getElementById("leaderboard").innerHTML;
             }
