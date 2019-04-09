@@ -187,14 +187,13 @@ let leaderboardref = firebase.database().ref().child("LeaderBoard");
 leaderboardref.on("value", function(data) {
     let leaderboarddata = data.val();
     let emptylist = [];
-    document.getElementById("leaderboard").innerHTML = "";
+    document.getElementById("lb_list").innerHTML = "";
     for(i in leaderboarddata) {
-        emptylist.push("Name : " + leaderboarddata[i]["name"] + " score : " + leaderboarddata[i]["score"])
-        // document.getElementById("leaderboard").innerHTML = 
-        // `<div>Name : ` + leaderboarddata[i]["name"] + `    score : ` + leaderboarddata[i]["score"] + `</div>
-        // </div>` + document.getElementById("leaderboard").innerHTML ;
-    } 
-    let k = emptylist.length;
-    document.getElementById("leaderboard").innerHTML = emptylist[k-1] + "<br>" + emptylist[k-2] + "<br>" + emptylist[k-3] + "<br>" + emptylist[k-4] + "<br>" + emptylist[k-5];
+        document.getElementById("lb_list").innerHTML =
+           `<li>` +
+           `<mark>` + leaderboarddata[i]["name"] + `</mark>`+
+           `<small>` + leaderboarddata[i]["score"] + `</small>` +
+           `</li>` + document.getElementById("lb_list").innerHTML ;
+    }
 });
 }

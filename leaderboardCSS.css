@@ -9,11 +9,11 @@ li {
 /*-------------------- Leaderboard --------------------*/
  .leaderboard {
 	 position: absolute;
-	 top: 130%;
+	 top: 110%;
 	 left: 50%;
 	 transform: translate(-50%, -50%);
 	 width: 285px;
-	 height: 320px;
+	 height: 100px;
 	 background: linear-gradient(to bottom, hotpink, #181c26);
 	 border-radius: 10px;
 	 box-shadow: 0 7px 30px rgba(62, 9, 11, .3);
@@ -164,6 +164,71 @@ li {
 	 border-top: none;
 	 border-bottom: 8px solid #993639;
 }
+
+.leaderboard ol li:nth-child(6) {
+    background: pink;
+    border-radius: 0 0 10px 10px;
+}
+.leaderboard ol li:nth-child(6)::after {
+    background: pink;
+    box-shadow: 0 -2.5px 0 rgba(0, 0, 0, .12);
+    border-radius: 0 0 10px 10px;
+}
+.leaderboard ol li:nth-child(6) mark::before, .leaderboard ol li:nth-child(5) mark::after {
+    top: -11px;
+    bottom: auto;
+    border-top: none;
+    border-bottom: 8px solid #993639;
+}
+
+.leaderboard ol li:nth-child(7) {
+    background: pink;
+    border-radius: 0 0 10px 10px;
+}
+.leaderboard ol li:nth-child(7)::after {
+    background: pink;
+    box-shadow: 0 -2.5px 0 rgba(0, 0, 0, .12);
+    border-radius: 0 0 10px 10px;
+}
+.leaderboard ol li:nth-child(7) mark::before, .leaderboard ol li:nth-child(5) mark::after {
+    top: -13px;
+    bottom: auto;
+    border-top: none;
+    border-bottom: 8px solid #993639;
+}
+
+.leaderboard ol li:nth-child(8) {
+    background: pink;
+    border-radius: 0 0 10px 10px;
+}
+.leaderboard ol li:nth-child(8)::after {
+    background: pink;
+    box-shadow: 0 -2.5px 0 rgba(0, 0, 0, .12);
+    border-radius: 0 0 10px 10px;
+}
+.leaderboard ol li:nth-child(8) mark::before, .leaderboard ol li:nth-child(5) mark::after {
+    top: -13px;
+    bottom: auto;
+    border-top: none;
+    border-bottom: 8px solid #993639;
+}
+
+.leaderboard ol li:nth-child(9) {
+    background: pink;
+    border-radius: 0 0 10px 10px;
+}
+.leaderboard ol li:nth-child(9)::after {
+    background: pink;
+    box-shadow: 0 -2.5px 0 rgba(0, 0, 0, .12);
+    border-radius: 0 0 10px 10px;
+}
+.leaderboard ol li:nth-child(9) mark::before, .leaderboard ol li:nth-child(5) mark::after {
+    top: -13px;
+    bottom: auto;
+    border-top: none;
+    border-bottom: 8px solid #993639;
+}
+
  .leaderboard ol li:hover {
 	 z-index: 2;
 	 overflow: visible;
