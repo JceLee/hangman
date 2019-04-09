@@ -1,7 +1,7 @@
 body {
     margin: 0 auto;
-    background-color: pink;
     font-family: 'Exo 2', sans-serif;
+    background: url(images/candyland.jpg) no-repeat center fixed;
 }
 ul {
     padding: 0;
@@ -20,6 +20,7 @@ div#title,
 #div_lives,
 #div_score{
     text-align: center;
+    color: hotpink;
 }
 
 #score {
