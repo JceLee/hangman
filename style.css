@@ -31,6 +31,10 @@ div#title,
 }
 #div_answer {
     text-align: center;
+    color: hotpink;
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: auto;
 }
 #div_restart {
     text-align: center;
