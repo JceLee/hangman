@@ -72,6 +72,7 @@
         makeUnderScore();
         makeHeart();
         makeButtons();
+        readleaderboard();
         scores.innerHTML = "Score: " + score;
         answer.innerHTML = showLetters(makeUnderScore);
     }
@@ -185,13 +186,13 @@ function readleaderboard() {
     let leaderboardref = firebase.database().ref().child("LeaderBoard");
     leaderboardref.on("value", function(data) {
         let leaderboarddata = data.val();
+        document.getElementById("leaderboard").innerHTML = "";
         for(i in leaderboarddata) {
-            document.getElementById("leaderboard").innerHTML =
+            document.getElementById("leaderboard").innerHTML = 
             `<div class="leaderboard" "data-score = ` + leaderboarddata[i] + `">
             <div>Name : ` + leaderboarddata[i]["name"] + `    score : ` + leaderboarddata[i]["score"] + `</div>
             </div>` + document.getElementById("leaderboard").innerHTML ;
-        }
-
+        }     
     });
 }
-readleaderboard()
+
