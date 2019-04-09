@@ -190,7 +190,7 @@ function readleaderboard() {
         for(i in leaderboarddata) {
             document.getElementById("leaderboard").innerHTML = 
             `<div class="leaderboard" "data-score = ` + leaderboarddata[i] + `">
-            <div>Name : ` + leaderboarddata[i]["name"] + `    score : ` + leaderboarddata[i]["score"] + `</div>
+            <div>Name : ` + leaderboarddata[i]["name"] + ` | Score : ` + leaderboarddata[i]["score"] + `</div>
             </div>` + document.getElementById("leaderboard").innerHTML ;
         }     
     });
