@@ -1,4 +1,5 @@
 body {
+    position: relative;
     margin: 0 auto;
     font-family: 'Exo 2', sans-serif;
     background: url(images/candyland.jpg) no-repeat center fixed;
@@ -16,9 +17,9 @@ li {
     text-align: center;
 }
 
-div#title,
-#div_lives,
-#div_score{
+#title,
+#div_score,
+#div_answer{
     text-align: center;
     color: hotpink;
 }
@@ -55,7 +56,6 @@ div#title,
     color: hotpink;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     margin: 2%;
-
 }
 
 #resetButton:hover,
